@@ -1,6 +1,6 @@
 # Neovim R IDE
 
-A step-by-step walkthrough of how to convert Neovim into an R IDE, with a slight preference for Mac OS.
+A step-by-step walkthrough of how to convert Neovim into an R IDE, with a slight preference for Mac OS. [Read more on this setup](https://kadekillary.work/post/nvim-r/).
 
 ![cover-image](https://i.imgur.com/dnDB1o1.png)
 
@@ -123,3 +123,23 @@ map <leader>nt :NERDTreeToggle<CR>
 ```
 
 ### Optional
+
+If you're open to living on the edge you can setup [this experimental language server](https://github.com/REditorSupport/languageserver) for R. In order to use the language server, additional setup is needed.
+
+```vim
+" Add this plugin :: LSP
+Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+
+" Configue LSP plugin for R language server
+" << LSP >> {{{
+
+let g:LanguageClient_autoStart = 1
+let g:LanguageClient_serverCommands = {
+    \ 'r': ['R', '--quiet', '--slave', '-e', 'languageserver::run()']
+    \ }
+
+noremap <silent> H :call LanguageClient_textDocument_hover()<CR>
+noremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+noremap <silent> R :call LanguageClient_textDocument_rename()<CR>
+" }}}
+```
