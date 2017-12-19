@@ -60,11 +60,66 @@ call plug#begin('~/.local/share/nvim/plugged')
 " your plugins go here
 Plug "junegunn/vim-easy-align"
 
-call plug#end
+call plug#end()
 ```
 
 Lastly, you'll need to reload your `init.vim` and type the command `:PlugInstall`
 
 ### Installing Plugins
 
+Now comes the fun part! We're going to install a couple of plugins to transform our Neovim R support from lackluster to legendary.
+
+For an in-depth overview of what each of them does: [read this](https://kadekillary.work/post/nvim-r/).
+
+```vim
+call plug#begin('~/.local/share/nvim/plugged')
+
+" for linting our code
+" you'll also need to install.packages('lintr')
+Plug 'w0rp/ale'
+
+" the main R plugin providing RStudio-esque features
+Plug 'jalvesaq/Nvim-R'
+
+" project navigator
+Plug 'scrooloose/nerdtree'
+
+" autocompletion manager
+Plug 'roxma/nvim-completion-manager'
+
+" autocompletion for R
+Plug 'gaalcara/ncm-R'
+
+call plug#end()
+```
+
+At this point, you've pretty much got everything you need. However, there are some convenience key mappings that we can do to simplify.
+
+For a brief overview of important features:
+
+- `\rf` :: start Nvim-R
+- `\rq` :: quit Nvim-R
+- `\l` :: send line from .R file -> R console
+- `\ss` :: send selection from .R file -> R console
+- `\o` :: print .R line/selection as comments in file
+
 ### Key Mappings
+
+A variety of convenient key mappings for an improved R workflow.
+
+```vim
+" R
+let g:Rout_more_colors = 1
+let g:rout_follow_colorscheme = 1
+
+nmap , <Plug>RSendLine
+vmap , <Plug>RDSendSelection
+vmap ,e <Plug>RESendSelection
+nmap ,p <Plug>RPrintObj
+
+" NERDTREE
+let g:NERDTreeWinPos = 'left'
+map <leader>nt :NERDTreeToggle<CR>
+```
+
+### Optional
