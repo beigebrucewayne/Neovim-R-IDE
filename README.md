@@ -4,7 +4,7 @@ The goal is to have an up-to-date set of instructions for turning Vim / Neovim i
 
 ### Completed
 
-- [x] [R]()
+- [x] [R](https://github.com/beigebrucewayne/Neovim-R-IDE/blob/master/R.md)
 
 ### TODO
 
