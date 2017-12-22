@@ -4,7 +4,7 @@ The goal is to have an up-to-date set of instructions for turning Vim / Neovim i
 
 ### Completed
 
-- [x] [R](https://github.com/beigebrucewayne/Neovim-R-IDE/blob/master/R.md)
+- [x] [R :: Neovim](https://github.com/beigebrucewayne/Vim-IDE-4-All/blob/master/R-neovim.md)
 
 ### TODO
 
@@ -13,5 +13,6 @@ The goal is to have an up-to-date set of instructions for turning Vim / Neovim i
 - [ ] Rust
 - [ ] Go
 - [ ] C++
+- [ ] Julia
 - [ ] Ruby
 - [ ] Haskell
